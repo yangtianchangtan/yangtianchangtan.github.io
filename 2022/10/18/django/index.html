@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git, 枫叶潇潇">
+    <meta name="keywords" content="枫叶潇潇">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>git | 枫叶潇潇</title>
+    <title>枫叶潇潇</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-16
+                    2022-10-18
                 </div>
                 
 
@@ -464,11 +464,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<h2 id="如何用git将文件夹提交到gitee的指定分支，如（master）"><a href="#如何用git将文件夹提交到gitee的指定分支，如（master）" class="headerlink" title="如何用git将文件夹提交到gitee的指定分支，如（master）"></a>如何用git将文件夹提交到gitee的指定分支，如（master）</h2></blockquote>
-<h3 id="例子：如现在想将桌面名为test的文件夹上传到gitee的master分支上，步骤为？"><a href="#例子：如现在想将桌面名为test的文件夹上传到gitee的master分支上，步骤为？" class="headerlink" title="例子：如现在想将桌面名为test的文件夹上传到gitee的master分支上，步骤为？"></a>例子：如现在想将桌面名为test的文件夹上传到gitee的master分支上，步骤为？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#先将test的上一级目录格式化为git本地仓库</span><br><span class="line">git init</span><br><span class="line">#添加远程仓库地址</span><br><span class="line">git remote add origin http://xxxx.git</span><br><span class="line">#远程仓库与本地仓库同步</span><br><span class="line">git pull origin gitee的分支名 -allow-unrelated-histories</span><br><span class="line">#把拉取到的文件添加暂存区</span><br><span class="line">git add .</span><br><span class="line">#添加到本地仓库</span><br><span class="line">git commit -m &#x27;备注&#x27;</span><br><span class="line">#最后一步上传到远程仓库（gitee)</span><br><span class="line">git push origin 分支名</span><br></pre></td></tr></table></figure>
+                <h1 id="django"><a href="#django" class="headerlink" title="django"></a>django</h1><h2 id="网页开发的具体步骤"><a href="#网页开发的具体步骤" class="headerlink" title="网页开发的具体步骤"></a>网页开发的具体步骤</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1.生成项目文件夹</span><br><span class="line">django-admin startproject 工程名</span><br><span class="line">2.添加应用</span><br><span class="line">python manage.py startapp 应用名</span><br><span class="line">3.在工程同名的子文件夹下的setting.py文件中修改一些设置</span><br><span class="line">如在INSTALLED_APPS中添加应用名</span><br><span class="line">4.在工程的同名文件夹的urls.py文件中配置一级路由</span><br><span class="line">导入</span><br><span class="line">from django.urls import path</span><br><span class="line">path=[</span><br><span class="line">	&quot;路由&quot;,视图文件名，name=&quot;路由别名（实现url逆向解析）&quot;，</span><br><span class="line">	</span><br><span class="line">]</span><br><span class="line">5.配置相应的views.py</span><br><span class="line">6.在网站首页app中templates文件夹中添加html文件，然后在该文件中通过静态文件的方法将其他应用链接起来，列可添加这样的a标签</span><br><span class="line">&lt;a href=&quot;&#123;% url &#x27;应用名:路由别名&#x27; %&#125;&quot;</span><br></pre></td></tr></table></figure>
 
-<p>注意：要上传的本地分支名要和远程的分支名相同，不同的话在本地创建一个分支git branch 分支名，在切换分支git checkout 分支名</p>
+
+
 
                 
             </div>
@@ -495,7 +494,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/16/git/">http://example.com/2022/10/16/git/</a>
+                    <a href="http://example.com/2022/10/18/django/">http://example.com/2022/10/18/django/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -700,9 +699,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/10/18/django/">
                     <div class="card-image">
@@ -720,9 +720,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -731,6 +731,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -741,13 +742,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/15/Mysql/">
+                <a href="/2022/10/16/git/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Mysql">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="git">
                         
-                        <span class="card-title">Mysql</span>
+                        <span class="card-title">git</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -758,7 +759,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-16
                             </span>
                         <span class="publish-author">
                             
