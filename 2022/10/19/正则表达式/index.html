@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-18
+                    2022-10-19
                 </div>
                 
 
@@ -464,19 +464,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code>                                     ### **网络爬虫**
-</code></pre>
-<blockquote>
-<p>2022&#x2F;10&#x2F;18</p>
-</blockquote>
-<h4 id="1-爬虫代码-有感"><a href="#1-爬虫代码-有感" class="headerlink" title="1.爬虫代码(有感)"></a>1.爬虫代码(有感)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.#库</span><br><span class="line">from urls.request import urlopen</span><br><span class="line">from urls.error import httperro,urlerror</span><br><span class="line">from bs4 import BeautifulSoup(大小写不能错)</span><br><span class="line">2.#拿到页面</span><br><span class="line">html=urlopen(&quot;网址&quot;)</span><br><span class="line">3.#放到美味的汤里(将拿到的html源码变得有序)</span><br><span class="line">bsobj=BeautifulSoup(html.read())</span><br><span class="line">4.#拿到想要的部分</span><br><span class="line">print(bsobj.title)//也可以是bsobj.h1</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-抓取网页内容"><a href="#2-抓取网页内容" class="headerlink" title="2.抓取网页内容"></a>2.抓取网页内容</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.#抓取上文bsobj内的东西</span><br><span class="line">namelist=bsobj.findall(&quot;span&quot;,&#123;&quot;class&quot;:&quot;green&quot;&#125;)</span><br><span class="line">2,#将抓取到的一次输出打印</span><br><span class="line">for name in namelist:</span><br><span class="line">	print(name.get_text())//只输出标签内的内容</span><br><span class="line">	#print(name)//连带标签一起输出</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-抓取表格数据"><a href="#3-抓取表格数据" class="headerlink" title="3.抓取表格数据"></a>3.抓取表格数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.抓取表格后代数据（父与子）:children(),descendants()</span><br><span class="line">#拿到bsobj对象后的操作</span><br><span class="line">for child in bsobj.find(&quot;table&quot;,&#123;&quot;id&quot;:&quot;giftList&quot;&#125;).children:</span><br><span class="line">print(child)</span><br><span class="line">#注意打印子标签是children函数，如果想打印后代标签就要用descendants函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.抓取表格数据（兄弟）:next_siblings()</span><br><span class="line">for sibing in bsobj.find(&quot;table&quot;,&#123;&quot;id&quot;:&quot;giftList&quot;&#125;).tr.next_siblings:</span><br><span class="line">print(sibling)</span><br><span class="line">#注意这是打印了表格所有行数据（表格标题除外—）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+                <h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><h4 id="1-限定符"><a href="#1-限定符" class="headerlink" title="1.限定符"></a>1.限定符</h4><p>？：0次或1次</p>
+<p>*：0个或多次</p>
+<p>+：一次以上</p>
+<p>{int, int }:限定次数</p>
+<h4 id="2-或运算符"><a href="#2-或运算符" class="headerlink" title="2.或运算符"></a>2.或运算符</h4><p>例：a (bc|cd)     可以匹配：a bc或 a cd</p>
+<h4 id="3-字符类"><a href="#3-字符类" class="headerlink" title="3.字符类"></a>3.字符类</h4><p>例：[a-zA-Z0-9]+           ：所有字符出现1次以上</p>
+<p>[^0-9]+   :   所有非数字字符出现一次以上</p>
+<h4 id="4-元字符"><a href="#4-元字符" class="headerlink" title="4.元字符"></a>4.元字符</h4><p>4.1     \d:数字字符</p>
+<p>​			\D:非数字字符</p>
+<p>4.2	   \w：单词字符</p>
+<p>​			   \W：非单词字符</p>
+<p>4.3		\s:空白符（包含Tab和换行符）</p>
+<p>​				\S:非空白符</p>
+<p>4.4   .（点号）:任意字符（不包含换行符）</p>
+<p>4.5	 ^:匹配行首： ^a</p>
+<p>​			$:匹配行尾:   a$</p>
+<p>4.6  贪婪匹配-&gt;懒惰匹配:&lt;.+&gt;变成&lt;.+?&gt;</p>
+<h4 id="5-RGB颜色值匹配"><a href="#5-RGB颜色值匹配" class="headerlink" title="5.RGB颜色值匹配"></a>5.RGB颜色值匹配</h4><p>例:#ffffff</p>
+<p>可以用正则表达式：#[a-fA-F0-9]{6}\b</p>
+<p>注意：\b代表单词字符边界</p>
+<h4 id="6-IPv4地址匹配"><a href="#6-IPv4地址匹配" class="headerlink" title="6.IPv4地址匹配"></a>6.IPv4地址匹配</h4><p>例：192.168.0.1</p>
+<p>正则表达式：\d+.\d+.\d+.\d+             -&gt;有缺陷:可能匹配到266.266.266.266</p>
+<p>改良: \b((25[0-5]|2[0-4]\d|[01]?\d\d?).){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)\b</p>
 
                 
             </div>
@@ -503,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/18/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">http://example.com/2022/10/18/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/</a>
+                    <a href="http://example.com/2022/10/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">http://example.com/2022/10/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -708,9 +718,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/10/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                     <div class="card-image">
@@ -728,9 +739,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -739,6 +750,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -749,7 +761,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/18/django/">
+                <a href="/2022/10/18/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
                     <div class="card-image">
                         
                         
