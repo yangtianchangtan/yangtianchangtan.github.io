@@ -469,6 +469,15 @@
 <h3 id="例子：如现在想将桌面名为test的文件夹上传到gitee的master分支上，步骤为？"><a href="#例子：如现在想将桌面名为test的文件夹上传到gitee的master分支上，步骤为？" class="headerlink" title="例子：如现在想将桌面名为test的文件夹上传到gitee的master分支上，步骤为？"></a>例子：如现在想将桌面名为test的文件夹上传到gitee的master分支上，步骤为？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#先将test的上一级目录格式化为git本地仓库</span><br><span class="line">git init</span><br><span class="line">#添加远程仓库地址</span><br><span class="line">git remote add origin http://xxxx.git</span><br><span class="line">#远程仓库与本地仓库同步</span><br><span class="line">git pull origin gitee的分支名 -allow-unrelated-histories</span><br><span class="line">#把拉取到的文件添加暂存区</span><br><span class="line">git add .</span><br><span class="line">#添加到本地仓库</span><br><span class="line">git commit -m &#x27;备注&#x27;</span><br><span class="line">#最后一步上传到远程仓库（gitee)</span><br><span class="line">git push origin 分支名</span><br></pre></td></tr></table></figure>
 
 <p>注意：要上传的本地分支名要和远程的分支名相同，不同的话在本地创建一个分支git branch 分支名，在切换分支git checkout 分支名</p>
+<blockquote>
+<h4 id="将自己的gitee远程仓库上传到别人的gitee上怎么弄？"><a href="#将自己的gitee远程仓库上传到别人的gitee上怎么弄？" class="headerlink" title="将自己的gitee远程仓库上传到别人的gitee上怎么弄？"></a>将自己的gitee远程仓库上传到别人的gitee上怎么弄？</h4></blockquote>
+<p>主要步骤如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">第一步:先克隆自己的远程仓库到本地</span><br><span class="line">git clone 自己的gitee地址 文件夹名</span><br><span class="line">第二步:修改当前主机windows凭证里Internet地址或网络地址为git:https://gitee.com的选项，将用户名和密码，修改成他人的</span><br><span class="line">第三步:登录他人的gitee账号并上传</span><br><span class="line">git remote add origin 他人的仓库</span><br><span class="line">注意这一步要先抓取在上传</span><br><span class="line">git pull origin master --allow-unrelated-histories</span><br><span class="line">git push origin master(这一步报错就要先用add和commit命令先添加到本地仓库)</span><br><span class="line">completely!!!!!!!</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
                 
             </div>
@@ -708,9 +717,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="django">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">django</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
