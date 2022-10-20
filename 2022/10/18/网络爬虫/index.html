@@ -477,6 +477,21 @@
 
 
 
+<blockquote>
+<p>10&#x2F;19</p>
+</blockquote>
+<p>今天遇到了一个问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">####代码如下：</span><br><span class="line">html=urlopen(&quot;https://www.pythonscraping.com/pages/page3.html&quot;)</span><br><span class="line">bsobj=BeautifulSoup(html.read())</span><br><span class="line">####报错：</span><br><span class="line">GuessedAtParserWarning: No parser was explicitly specified, so I&#x27;m using the best available HTML parser for this system (&quot;html.parser&quot;). This usually isn&#x27;t a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.</span><br><span class="line">####中文翻译是：GuessedAtParserWarning：没有显式指定解析器，所以我使用了这个系统可用的最佳HTML解析器（“HTML.parser”）。这通常不是问题，但如果您在另一个系统上或在不同的虚拟环境中运行此代码，它可能会使用不同的解析器，并且表现不同。</span><br><span class="line">###解决方法：</span><br><span class="line">1.按照它说的，添加一个参数：</span><br><span class="line">bsobj=BeautifulSoup(html.read(),&quot;html.parser&quot;)//添加一个解析器参数，但并没有真正解决问题，事实上，它仅仅是没报错而已，但却没有相应的输出。</span><br><span class="line">2.事实上是网址错了，改为：</span><br><span class="line">html=urlopen(&quot;http://www.pythonscraping.com/pages/page3.html&quot;)//减少一个s就能正常解析url了</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-怎么拿到一个标签的所有属性"><a href="#1-怎么拿到一个标签的所有属性" class="headerlink" title="1.怎么拿到一个标签的所有属性"></a>1.怎么拿到一个标签的所有属性</h4><p>如一个a标签：</p>
+<p><a href="#" alt="" title=""></a></p>
+<p>如果想拿到href，alt，title属性,可以：a.attrs</p>
+<p>想拿到href，alt，title属性中的一个，可以：a.attrs[“alt”]</p>
+<h4 id="2-小知识（Lambda表达式）"><a href="#2-小知识（Lambda表达式）" class="headerlink" title="2.小知识（Lambda表达式）"></a>2.小知识（Lambda表达式）</h4><p>实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#正常函数</span><br><span class="line">def add(x,y):</span><br><span class="line">	return x+y</span><br><span class="line">print(add(2,4))</span><br><span class="line">改写成lambda表达式:</span><br><span class="line">f=lambda x,y:x+y</span><br><span class="line">print(f(2,4))</span><br></pre></td></tr></table></figure>
+
+
+
 
                 
             </div>
